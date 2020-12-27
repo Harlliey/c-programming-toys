@@ -1,3 +1,6 @@
+//
+// Created by Harrywei on 2020/12/27.
+//
 #include <stdio.h>
 #include <utmp.h>
 #include <unistd.h>
@@ -16,12 +19,14 @@ int main()
     int utmpfd;
     int reclen = sizeof(current_record);
 
-    if ((utmpfd = open(UTMP_FILE, O_RDONLY)) == -1) {
+    if ((utmpfd = open(UTMP_FILE, O_RDONLY)) == -1)
+    {
         perror(UTMP_FILE);
         exit(1);
     }
 
-    while (read(utmpfd, &current_record, reclen) == reclen) {
+    while (read(utmpfd, &current_record, reclen) == reclen)
+    {
         show_info(&current_record);
     }
 
